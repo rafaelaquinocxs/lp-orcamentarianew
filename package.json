@@ -1,13 +1,22 @@
 {
-  "name": "precadastro-vercel",
-  "private": true,
-  "version": "1.0.0",
-  "engines": { "node": "20.x" },
-  "scripts": {
-    "start": "serve public"
+  "version": 2,
+  "functions": {
+    "api/precadastro.js": {
+      "runtime": "nodejs18.x"
+    }
   },
-  "dependencies": {
-    "mongoose": "^8.6.0",
-    "validator": "^13.11.0"
-  }
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/public/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ]
 }
