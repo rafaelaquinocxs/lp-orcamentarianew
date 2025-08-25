@@ -1,0 +1,28 @@
+{
+  "name": "precadastro-orcamentaria-vercel",
+  "version": "1.0.0",
+  "description": "Módulo de pré-cadastro para Comunidade Orçamentaria - Vercel",
+  "main": "api/precadastro.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Build completed'",
+    "start": "vercel dev"
+  },
+  "keywords": [
+    "orcamentaria",
+    "precadastro",
+    "arquitetura",
+    "construcao",
+    "vercel"
+  ],
+  "author": "Orçamentaria",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^8.0.3",
+    "validator": "^13.11.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+

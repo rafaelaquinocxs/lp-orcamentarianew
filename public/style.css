@@ -1,0 +1,147 @@
+/* ===== Paleta Orçamentaria ===== */
+:root{
+  --brand:#C04B3E;        /* terracota principal */
+  --brand-2:#E0B08E;      /* bege quente de apoio (se precisar) */
+  --brand-dark:#231916;   /* marrom muito escuro */
+  --ink:#1f1f1f;
+  --muted:#6e6e6e;
+  --panel:#ffffff;
+  --border:#e7e7e7;
+  --bg:#ffffff;
+}
+
+/* Reset básico */
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* 
+  Imagem de fundo + overlay branco para manter legibilidade.
+  Salve a imagem em /public/fundo.jpg (ajuste o nome se quiser).
+*/
+body{
+  font-family: system-ui, -apple-system,"Segoe UI", Roboto, Helvetica, Arial;
+  min-height:100vh; 
+  color:var(--ink);
+
+  /* overlay + imagem */
+  background:
+    linear-gradient(rgba(255,255,255,.86), rgba(255,255,255,.86)),
+    url('./fundo.jpg') center/cover no-repeat fixed;
+}
+
+/* ===== Estrutura de página ===== */
+.container{
+  max-width: 1100px;              /* comporta 2 colunas lado a lado */
+  margin: 0 auto;
+  padding: 24px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Cabeçalho */
+.header{ text-align:center; margin-bottom:18px; }
+.brandbar{
+  width:100%; height:8px;
+  background:linear-gradient(90deg, var(--brand-dark), var(--brand));
+  border-radius:999px; margin:0 auto 14px; max-width:220px;
+}
+.logo-wrap{ display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:6px; }
+.logo{
+  width:64px; height:64px; border-radius:50%; overflow:hidden;
+  display:grid; place-items:center; background:var(--brand-dark);
+}
+.logo img{ width:100%; height:100%; object-fit:cover; }
+.title{ font-size:28px; font-weight:800; color:var(--brand-dark); letter-spacing:.2px; }
+.subtitle{ color:var(--muted); font-weight:600; margin-top:4px; }
+.highlight{
+  margin:14px auto 0; width:max-content; max-width:100%;
+  background:linear-gradient(135deg, var(--brand), #d46a53);
+  color:#fff; font-weight:800; padding:10px 16px; border-radius:999px;
+  box-shadow:0 10px 24px rgba(192,75,62,.25);
+}
+
+/* ===== Grid 2 colunas: formulário | card ===== */
+.two-col{
+  display:grid;
+  grid-template-columns: 1.05fr 0.95fr; /* form levemente maior que o card */
+  gap: 28px;
+  align-items: start;
+  margin-top: 18px;
+}
+
+/* Card (peça visual) à direita */
+.promo{
+  background:#fff; border:1px solid var(--border);
+  border-radius:14px; box-shadow:0 8px 28px rgba(0,0,0,.06);
+  padding:12px;
+}
+.promo img{
+  width:100%; height:auto; display:block; border-radius:10px;
+}
+
+/* Formulário */
+.form-container{
+  background:var(--panel); border:1px solid var(--border);
+  border-radius:14px; padding:26px; box-shadow:0 8px 28px rgba(0,0,0,.06);
+}
+
+.form-group{ margin-bottom:18px; }
+.form-label{ display:block; font-weight:800; margin-bottom:6px; color:var(--brand-dark); }
+.optional{ color:var(--muted); font-weight:500; font-size:13px; }
+
+.form-input, .form-select{
+  width:100%; padding:14px 15px; border-radius:10px;
+  border:2px solid var(--border); background:#fafafa; font-size:16px;
+  transition:.2s border, .2s background, .2s box-shadow;
+}
+.form-input:focus, .form-select:focus{
+  outline:none; border-color:var(--brand); background:#fff;
+  box-shadow:0 0 0 3px rgba(192,75,62,.12);
+}
+
+/* Chips (múltipla escolha) */
+.chip-wrap{ display:flex; flex-wrap:wrap; gap:10px; }
+.chip{
+  display:inline-flex; align-items:center; gap:8px;
+  border:2px solid var(--border); padding:10px 12px; border-radius:999px;
+  background:#fafafa; cursor:pointer; transition:.2s border, .2s background;
+  user-select:none; font-weight:600; color:#333;
+}
+.chip input{ accent-color:var(--brand); transform:scale(1.1); }
+.chip.active{ border-color:var(--brand); background:#fff; }
+
+.hidden{ display:none !important; }
+
+/* Botão */
+.submit-btn{
+  width:100%; padding:16px; border:none; border-radius:10px;
+  background:linear-gradient(135deg, var(--brand), #d46a53);
+  color:#fff; font-size:18px; font-weight:900; cursor:pointer;
+  box-shadow:0 10px 24px rgba(192,75,62,.25); transition:.15s transform;
+}
+.submit-btn:hover{ transform:translateY(-2px); }
+.submit-btn:disabled{ background:#ececec; color:#9a9a9a; box-shadow:none; cursor:not-allowed; }
+
+.loading{ display:none; align-items:center; justify-content:center; gap:8px; }
+.spinner{ width:18px; height:18px; border:2px solid transparent; border-top:2px solid #fff; border-radius:50%; animation:spin 1s linear infinite; }
+@keyframes spin{ to{ transform:rotate(360deg) } }
+
+.success-message,.error-message{
+  display:none; margin-top:18px; padding:16px; border-radius:10px; font-weight:800; text-align:center;
+  border:1px solid;
+}
+.success-message{ background:#d4edda; color:#155724; border-color:#c3e6cb; }
+.error-message{ background:#f8d7da; color:#721c24; border-color:#f5c6cb; }
+
+/* Rodapé */
+.footer{ text-align:center; margin-top:22px; color:var(--muted); font-size:14px; }
+.footer a{ color:var(--brand); text-decoration:none; font-weight:700; }
+.footer a:hover{ text-decoration:underline; }
+
+/* Responsivo: empilha em uma coluna */
+@media (max-width: 900px){
+  .two-col{ grid-template-columns: 1fr; }
+  .promo{ order: 2; }   /* no mobile: form em cima, card embaixo */
+  .form-container{ order: 1; }
+}
