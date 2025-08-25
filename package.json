@@ -1,0 +1,13 @@
+{
+  "name": "lp-orcamentaria-mongodb",
+  "version": "1.0.0",
+  "description": "Landing Page Orçamentaria com MongoDB",
+  "main": "index.html",
+  "dependencies": {
+    "mongodb": "^6.0.0"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
+
