@@ -1,13 +1,17 @@
 {
-  "name": "precadastro-vercel",
-  "private": true,
+  "name": "lp-orcamentaria",
   "version": "1.0.0",
-  "engines": { "node": "20.x" },
+  "description": "Landing Page Orçamentaria - Pré-cadastro",
+  "main": "index.html",
   "scripts": {
-    "start": "serve public"
+    "dev": "vercel dev",
+    "build": "echo 'Build completed'"
   },
   "dependencies": {
-    "mongoose": "^8.6.0",
-    "validator": "^13.11.0"
+    "mongoose": "^7.6.0"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
+
