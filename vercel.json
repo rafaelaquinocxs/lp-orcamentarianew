@@ -1,8 +1,0 @@
-{
-  "functions": {
-    "api/cadastro.js": {
-      "runtime": "nodejs18.x"
-    }
-  }
-}
-
